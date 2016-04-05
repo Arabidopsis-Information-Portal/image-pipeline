@@ -6,15 +6,19 @@ import java.util.Map;
 import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
-import org.araport.stock.domain.Db;
-import org.araport.stock.domain.DbXref;
-import org.araport.stock.domain.DbXrefSource;
-import org.araport.stock.domain.SourceStockDrivingQuery;
-import org.araport.stock.domain.Stock;
-import org.araport.stock.domain.StockProperty;
-import org.araport.stock.domain.StockPropertySource;
-import org.araport.stock.executors.TaskExecutorConfig;
-import org.araport.stock.flow.beans.FlowBeans;
+import org.araport.image.domain.Db;
+import org.araport.image.domain.DbXref;
+import org.araport.image.domain.DbXrefSource;
+import org.araport.image.executors.TaskExecutorConfig;
+import org.araport.image.flow.beans.FlowBeans;
+import org.araport.image.listeners.ItemFailureLoggerListener;
+import org.araport.image.listeners.LogProcessListener;
+import org.araport.image.listeners.LogStepStartStopListener;
+import org.araport.image.listeners.ProtocolListener;
+import org.araport.image.policy.ExceptionSkipPolicy;
+import org.araport.image.policy.PolicyBean;
+import org.araport.image.rowmapper.beans.RowMapperBeans;
+import org.araport.image.staging.BatchSchemaInitTasklet;
 import org.postgresql.util.PSQLException;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -57,19 +61,12 @@ import org.springframework.scheduling.concurrent.ConcurrentTaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.PlatformTransactionManager;
-import org.araport.stock.listeners.ItemFailureLoggerListener;
-import org.araport.stock.listeners.LogProcessListener;
-import org.araport.stock.listeners.LogStepStartStopListener;
-import org.araport.stock.listeners.ProtocolListener;
-import org.araport.stock.policy.ExceptionSkipPolicy;
-import org.araport.stock.policy.PolicyBean;
-import org.araport.stock.rowmapper.beans.RowMapperBeans;
-import org.araport.stock.tasklet.staging.BatchSchemaInitTasklet;
 
 @Configuration
 @EnableBatchProcessing
 @Import({ DataSourceInfrastructureConfiguration.class, 
-		RowMapperBeans.class, TaskExecutorConfig.class,
+		//RowMapperBeans.class,
+		TaskExecutorConfig.class,
 		FlowBeans.class, PolicyBean.class })
 @PropertySources(value = { @PropertySource("classpath:/partition.properties") })
 public class LoadStocksJobBatchConfiguration {
