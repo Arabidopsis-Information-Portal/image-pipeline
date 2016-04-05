@@ -7,7 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
-import org.araport.jcvi.stock.application.DataSourceInfrastructureConfiguration;
+import org.araport.image.application.DataSourceInfrastructureConfiguration;
 import org.araport.stock.dao.impl.GeneralDaoImpl;
 import org.springframework.batch.core.partition.support.Partitioner;
 import org.springframework.batch.item.ExecutionContext;

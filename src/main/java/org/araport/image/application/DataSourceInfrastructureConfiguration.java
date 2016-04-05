@@ -1,4 +1,4 @@
-package org.araport.jcvi.stock.application;
+package org.araport.image.application;
 
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;

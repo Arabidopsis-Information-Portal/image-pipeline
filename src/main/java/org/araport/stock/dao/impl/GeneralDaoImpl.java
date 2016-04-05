@@ -9,7 +9,7 @@ import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
-import org.araport.jcvi.stock.application.DataSourceInfrastructureConfiguration;
+import org.araport.image.application.DataSourceInfrastructureConfiguration;
 import org.araport.stock.dao.GeneralDao;
 import org.araport.stock.rowmapper.StockPropertyRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;

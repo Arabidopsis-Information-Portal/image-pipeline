@@ -8,7 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
-import org.araport.jcvi.stock.application.DataSourceInfrastructureConfiguration;
+import org.araport.image.application.DataSourceInfrastructureConfiguration;
 import org.araport.stock.dao.StockDao;
 import org.araport.stock.domain.DbXref;
 import org.araport.stock.domain.Stock;

@@ -3,15 +3,15 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.jcvi.araport</groupId>
-	<artifactId>stock-reader</artifactId>
+	<groupId>org.araport</groupId>
+	<artifactId>image-reader</artifactId>
 	<version>1.0</version>
 	<packaging>jar</packaging>
-	<name>Command Line Stock Database Reader</name>
+	<name>Command Line Image Reader</name>
 	<url>http://www.springframework.org/spring-batch/archetypes/simple-cli-archetype</url>
 	<description>
 		<![CDATA[
-      Stock Database Reader  
+      Image Reader  
     ]]>
 	</description>
 
@@ -102,7 +102,7 @@
 
 
 	<properties>
-		<start-class>org.araport.jcvi.stock.application.ApplicationLauncher</start-class>
+		<start-class>org.araport.image.application.ApplicationLauncher</start-class>
 	</properties>
 
 	<build>

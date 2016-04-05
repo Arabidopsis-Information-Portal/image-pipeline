@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
-import org.araport.jcvi.stock.application.DataSourceInfrastructureConfiguration;
+import org.araport.image.application.DataSourceInfrastructureConfiguration;
 import org.araport.stock.dao.BaseDao;
 import org.araport.stock.dao.SkipItemsDao;
 import org.araport.stock.policy.SkipItems;

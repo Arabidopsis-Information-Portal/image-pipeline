@@ -1,1 +1,0 @@
-TRUNCATE staging.stock_cvterm CASCADE;

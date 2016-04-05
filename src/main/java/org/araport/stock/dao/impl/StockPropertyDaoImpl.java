@@ -7,7 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
-import org.araport.jcvi.stock.application.DataSourceInfrastructureConfiguration;
+import org.araport.image.application.DataSourceInfrastructureConfiguration;
 import org.araport.stock.dao.StockPropertyDao;
 import org.araport.stock.domain.StockProperty;
 import org.araport.stock.rowmapper.CVRowMapper;

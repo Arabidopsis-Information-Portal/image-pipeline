@@ -1,4 +1,7 @@
-tair-chado-batchflow
-====================
+## Stock Image Processing Pipeline
 
-Tair to Chado Batch DataFlow
+
+# Parse list of image urls from remote host
+# Read Binary Input Stream
+# Save Binary Content in the database 
+

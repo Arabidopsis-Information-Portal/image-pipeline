@@ -23,7 +23,7 @@ CREATE SCHEMA batch;
 COMMENT ON SCHEMA batch IS 'batch metadata schema';
 
 
-SET search_path = batch, pg_catalog;
+SET search_path = batch, chado, pg_catalog;
 
 SET default_tablespace = '';
 

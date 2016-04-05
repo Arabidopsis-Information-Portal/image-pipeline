@@ -3,7 +3,7 @@ package org.araport.stock.rowmapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.araport.jcvi.stock.application.DataSourceInfrastructureConfiguration;
+import org.araport.image.application.DataSourceInfrastructureConfiguration;
 import org.araport.stock.dao.impl.DbDaoImpl;
 import org.araport.stock.domain.SourceStockDrivingQuery;
 import org.springframework.context.annotation.Import;

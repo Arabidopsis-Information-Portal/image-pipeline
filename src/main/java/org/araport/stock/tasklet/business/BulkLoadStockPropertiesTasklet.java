@@ -5,7 +5,7 @@ import javax.sql.DataSource;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.araport.jcvi.stock.application.DataSourceInfrastructureConfiguration;
+import org.araport.image.application.DataSourceInfrastructureConfiguration;
 import org.araport.stock.dao.GeneralDao;
 import org.araport.stock.dao.impl.CVDaoImpl;
 import org.araport.stock.dao.impl.CVTermDaoImpl;

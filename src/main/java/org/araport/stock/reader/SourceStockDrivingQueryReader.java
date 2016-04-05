@@ -3,7 +3,7 @@ package org.araport.stock.reader;
 import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
-import org.araport.jcvi.stock.application.DataSourceInfrastructureConfiguration;
+import org.araport.image.application.DataSourceInfrastructureConfiguration;
 import org.araport.stock.common.ApplicationConstants;
 import org.araport.stock.common.DbLookupHolder;
 import org.araport.stock.common.MetadataExecutionContext;

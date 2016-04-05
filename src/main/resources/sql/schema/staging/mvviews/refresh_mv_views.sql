@@ -1,1 +1,0 @@
-REFRESH MATERIALIZED VIEW staging.stock_properties_all;
