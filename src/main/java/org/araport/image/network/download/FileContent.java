@@ -14,6 +14,8 @@ import org.apache.commons.net.ftp.FTPReply;
 import org.apache.log4j.Logger;
 import org.araport.image.common.ApplicationConstants;
 
+import ch.qos.logback.classic.Level;
+
 public class FileContent implements Callable<byte[]> {
 
 	private final FTPClient ftpClient;
@@ -21,6 +23,7 @@ public class FileContent implements Callable<byte[]> {
 	private final String fileName;
 	private final FTPFile ftpFile;
 	private static final Logger log = Logger.getLogger(FileContent.class);
+	
 	private byte[] content = new byte[1048];
 
 	public FileContent(FTPClient client, String path, String name, FTPFile file) {
@@ -42,7 +45,7 @@ public class FileContent implements Callable<byte[]> {
 		long fileSize = 0;
 
 		fileSize = ftpFile.getSize();
-		log.info("File: " + filePath + " ;File size: " + fileSize);
+		log.info("File: " + filePath + " ; File size: " + fileSize);
 
 		return fileSize;
 	}
@@ -92,14 +95,25 @@ public class FileContent implements Callable<byte[]> {
 			e.printStackTrace();
 		} finally {
 			if (exception != null) {
-				log.error("Error occured during file download." + " File: " + filePath + "; Message: "
-						+ exception.getMessage() + "; Cause:" + exception.getCause());
+								
+				String errorMessage = "Error occured during file download." + " File: " + filePath + "; Message: "
+						+ exception.getMessage() + "; Cause:" + exception.getCause();
+				
+				log.error(errorMessage);
+				
+				FileLogger.getErrorLogger().severe(errorMessage);
+				
+				DownLoadStats.getInstance().ERROR_COUNT.increment();
+							
 			} else {
 
 				log.info("File: " + filePath + " has been downloaded successfully.");
+				
+				DownLoadStats.getInstance().SUCCESS_COUNT.increment();
 			}
 
 			log.info("File: " + filePath + " has been downloaded successfully.");
+			
 			if (outputStream != null) {
 				outputStream.close();
 			}

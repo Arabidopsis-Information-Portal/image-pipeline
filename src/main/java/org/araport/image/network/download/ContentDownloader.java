@@ -53,8 +53,10 @@ public class ContentDownloader {
 		 **/
 		 
 		 
+		 DownLoadStats.getInstance().TOTAL_COUNT.setValue(files.length);
 		 
 		 for (FTPFile file : files) {
+			 
 			 String fileName = file.getName();
 			 String filePath = ApplicationConstants.FTP_FOLDER + fileName;
 			 //FileContentProcessor fileProcessor = new FileContentProcessor(client,fileName);
@@ -72,8 +74,11 @@ public class ContentDownloader {
 			// byte [] binaryContent = content.getContent();
 			 log.info("Remote File has been downloaded:" + fileName + "Size: " +content.length);
 			 
+			 log.info(DownLoadStats.getCurrentStatistics());
+			 
 		 }
 		 
+		 log.info(DownLoadStats.getCurrentStatistics());
 		 
 	}
 
