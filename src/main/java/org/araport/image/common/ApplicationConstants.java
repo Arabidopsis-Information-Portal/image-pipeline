@@ -1,7 +1,19 @@
 package org.araport.image.common;
 
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+
 public class ApplicationConstants {
 
+	
+    public final static String DOWNLOAD_STAGING_DIR = "/software/germplasm_images/download";
+    public final static String LOG_STAGING_DIR = "/software/germplasm_images/download/log";
+    public final static String ERROR_LOG = LOG_STAGING_DIR + "/" + "error.log";
+    public final static String FTP_SERVER = "ftp.arabidopsis.org";
+    public final static String FTP_FOLDER= "/home/tair/Images/germplasm_images/";
+    public final static String FTP_USER= "/home/tair/Images/germplasm_images/";
+    public final static String FTP_PASSWORD= "";
+    
 	public final static String TAIR_DB_ID = "TAIR_DB_ID";
 	public final static String TAIR_DB_NAME = "TAIR";
 	

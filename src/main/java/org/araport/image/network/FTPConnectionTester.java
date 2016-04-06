@@ -14,7 +14,11 @@ public class FTPConnectionTester {
         client.login("anonymous", "");
         FTPFile[] files = client.listFiles("/home/tair/Images/germplasm_images/");
         for (FTPFile file : files) {
-            System.out.println(file.getName());
+            System.out.println("File Name: "+ file.getName());
+            String fileName = file.getName();
+            String fileExtension = fileName.substring(fileName.indexOf('.')+1);
+            System.out.println("File Extension: " + fileExtension);
+            
         }
 
 }
