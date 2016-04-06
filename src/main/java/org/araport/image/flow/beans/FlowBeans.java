@@ -2,6 +2,7 @@ package org.araport.image.flow.beans;
 
 
 import org.araport.image.staging.*;
+import org.araport.image.tasklet.business.ContentDownLoaderTasklet;
 import org.springframework.context.annotation.Bean;
 
 public class FlowBeans {
@@ -11,4 +12,8 @@ public class FlowBeans {
 		return new BatchSchemaInitTasklet();
 	}
 
+	@Bean
+	public ContentDownLoaderTasklet contentDownLoaderTasklet(){
+		return new ContentDownLoaderTasklet();
+	}
 }

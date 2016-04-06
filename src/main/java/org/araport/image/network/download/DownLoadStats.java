@@ -4,7 +4,7 @@ import java.text.NumberFormat;
 
 public class DownLoadStats {
 
-	public volatile Counter ERROR_COUNT = new Counter();
+	public volatile static Counter ERROR_COUNT = new Counter();
 	public volatile static Counter SUCCESS_COUNT = new Counter();
 	public volatile static Counter TOTAL_COUNT = new Counter();
 
@@ -21,7 +21,9 @@ public class DownLoadStats {
 
 		result.append("Total Files downloaded " + SUCCESS_COUNT.getValue() + " of Total Files "
 				+ TOTAL_COUNT.getValue() + " Completed: "
-				+ getPercent(SUCCESS_COUNT.getValue(), TOTAL_COUNT.getValue()) + "\n");
+				+ getPercent(SUCCESS_COUNT.getValue(), TOTAL_COUNT.getValue()) + "\n" 
+				+ "Total Error Count :" + ERROR_COUNT.getValue()
+				);
 
 		return result.toString();
 
