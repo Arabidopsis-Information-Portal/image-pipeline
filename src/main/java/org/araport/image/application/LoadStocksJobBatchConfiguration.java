@@ -20,6 +20,7 @@ import org.araport.image.policy.PolicyBean;
 import org.araport.image.rowmapper.beans.RowMapperBeans;
 import org.araport.image.staging.BatchSchemaInitTasklet;
 import org.araport.image.staging.ImageModuleInitTasklet;
+import org.araport.image.staging.StagingImageModuleInitTasklet;
 import org.araport.image.tasklet.business.ContentDownLoaderTasklet;
 import org.postgresql.util.PSQLException;
 import org.springframework.batch.core.Job;
@@ -82,6 +83,7 @@ public class LoadStocksJobBatchConfiguration {
 	// Application Schemas
 	public static final String BATCH_SCHEMA_INITIALIZATION_STEP = "batchSchemaInitStep";
 	public static final String CHADO_IMAGE_MODULE_INITIALIZATION_STEP = "chadoImageModuleInitStep";
+	public static final String STAGING_IMAGE_MODULE_INITIALIZATION_STEP = "stagingImageModuleInitStep";
 	public static final String DATA_FILES_DOWNLOAD_STEP = "dataFilesDownloadStep";
 
 	@Autowired
@@ -104,6 +106,9 @@ public class LoadStocksJobBatchConfiguration {
 		
 	@Autowired
 	BatchSchemaInitTasklet batchSchemaInitTasklet;
+	
+	@Autowired
+	StagingImageModuleInitTasklet stagingImageModuleInitTasklet;
 	
 	@Autowired
 	ContentDownLoaderTasklet contentDownLoaderTasklet;
@@ -156,6 +161,7 @@ public class LoadStocksJobBatchConfiguration {
 				.get(MAIN_JOB)
 				.listener(protocolListener())
 				 .start(batchSchemaInitStep())
+				 .next(stagingImageModuleInitStep())
 				 .next(imageModuleInitStep())
 				// .next(imageFilesDownLoadStep())
 				 .build();
@@ -169,6 +175,19 @@ public class LoadStocksJobBatchConfiguration {
 				.get(BATCH_SCHEMA_INITIALIZATION_STEP);
 
 		Step step = stepBuilder.tasklet(batchSchemaInitTasklet).build();
+
+		return step;
+
+	}
+	
+	
+	@Bean
+	public Step stagingImageModuleInitStep() {
+
+		StepBuilder stepBuilder = stepBuilders
+				.get(STAGING_IMAGE_MODULE_INITIALIZATION_STEP);
+
+		Step step = stepBuilder.tasklet(stagingImageModuleInitTasklet).build();
 
 		return step;
 

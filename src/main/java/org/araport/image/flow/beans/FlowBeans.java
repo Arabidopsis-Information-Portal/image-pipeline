@@ -21,4 +21,9 @@ public class FlowBeans {
 	public ImageModuleInitTasklet imageModuleInitTasklet(){
 		return new ImageModuleInitTasklet();
 	}
+	
+	@Bean
+	StagingImageModuleInitTasklet stagingImageModuleInitTasklet(){
+		return new StagingImageModuleInitTasklet();
+	}
 }
