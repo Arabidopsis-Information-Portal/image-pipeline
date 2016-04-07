@@ -13,8 +13,9 @@ file_extension text,
 created_datetime timestamp not null default current_timestamp,
 modified_datetime timestamp not null default current_timestamp,
 size bigint,
-width bigint,
-height bigint,
+width int4,
+height int4,
+md5checksum char(32),
 PRIMARY KEY (image_id)
 );
 
@@ -34,8 +35,8 @@ ALTER TABLE chado.md_imagedata
 	
 CREATE TABLE chado.md_imagethumbnail(
 image_id bigserial not null,
-width bigint,
-height bigint,
+width int4,
+height int4,
 PRIMARY KEY (image_id)
 );
 
@@ -64,5 +65,5 @@ ALTER TABLE chado.stock_image
 CREATE INDEX stock_image_idx1 on chado.stock_image (stock_id);
 CREATE INDEX stock_image_idx2 on chado.stock_image (image_id);
 
-COMMENT ON TABLE stock_image IS 'Provenance. Linking table between stocks and images';
+COMMENT ON TABLE chado.stock_image IS 'Provenance. Linking table between stocks and images';
 	

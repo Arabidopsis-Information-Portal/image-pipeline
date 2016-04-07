@@ -16,4 +16,9 @@ public class FlowBeans {
 	public ContentDownLoaderTasklet contentDownLoaderTasklet(){
 		return new ContentDownLoaderTasklet();
 	}
+	
+	@Bean
+	public ImageModuleInitTasklet imageModuleInitTasklet(){
+		return new ImageModuleInitTasklet();
+	}
 }

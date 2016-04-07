@@ -22,8 +22,15 @@ public class DataService {
 			1, // core thread pool size
 			1, // maximum thread pool size
 			1, // time to wait before resizing pool
-			TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(1, true),
+			TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(5, true),
 			new ThreadPoolFactory("Data Service Pool"));
+	
+	private static ExecutorService fileServicePool = new LoaderThreadPool(
+			1, // core thread pool size
+			1, // maximum thread pool size
+			1, // time to wait before resizing pool
+			TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(2, true),
+			new ThreadPoolFactory("File Service Pool"));
 	
 	private static ExecutorService sqlTaskPool = new LoaderThreadPool(
 			1, // core thread pool size
@@ -49,6 +56,10 @@ public class DataService {
 		return dataServicePool;
 	}
 
+	public static ExecutorService getFileServicePool() {
+		return fileServicePool;
+	}
+	
 	public static ExecutorService getSQLTaskPooll() {
 		return sqlTaskPool;
 	}
@@ -57,6 +68,7 @@ public class DataService {
 
 		dataServicePool.shutdownNow();
 		sqlTaskPool.shutdownNow();
+		fileServicePool.shutdownNow();
 		
 	}
 	

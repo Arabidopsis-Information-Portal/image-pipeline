@@ -39,6 +39,8 @@ public class FTPService {
         client.connect(ApplicationConstants.FTP_SERVER);
         client.enterLocalPassiveMode();
         client.login("anonymous", "");
+        client.setDataTimeout(300000);
+        client.setDefaultTimeout(300000);
 		
 	}
 	
