@@ -8,6 +8,7 @@ import org.araport.image.dataloader.DataService;
 import org.araport.image.domain.DatabaseFileImage;
 import org.araport.image.network.download.FileProcessor;
 import org.springframework.batch.item.ItemProcessor;
+import org.springframework.util.StringUtils;
 
 public class FileItemProcessor implements ItemProcessor <String, DatabaseFileImage>{
 
@@ -18,6 +19,10 @@ public class FileItemProcessor implements ItemProcessor <String, DatabaseFileIma
 		
 		DatabaseFileImage dbImageItem = createItem(item);
 		log.info("DatabaseFileImage  has been created. File Name" + item + "DBImage: " + dbImageItem);
+		
+		if (StringUtils.isEmpty(dbImageItem.getName())){
+			return null;
+		}
 		
 		return dbImageItem;
 	}

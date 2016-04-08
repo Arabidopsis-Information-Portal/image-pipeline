@@ -77,10 +77,12 @@ public class FileProcessor implements Callable<DatabaseFileImage> {
 			long size, int width, int height, final byte[] fileContent) {
 
 		DatabaseFileImage fileImage = new DatabaseFileImage();
-		fileImage.setFileName(fileName);
+		
+		String baseName = FilenameUtils.getBaseName(fileName);
+		fileImage.setFileName(baseName);
 		fileImage.setFileExtension(extension);
 		fileImage.setName(name);
-		fileImage.seWidth(width);
+		fileImage.setWidth(width);
 		fileImage.setHeight(height);
 		fileImage.setSize(size);
 		fileImage.setContent(fileContent);

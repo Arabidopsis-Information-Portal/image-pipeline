@@ -28,6 +28,7 @@ import org.araport.image.staging.BatchSchemaInitTasklet;
 import org.araport.image.staging.ImageModuleInitTasklet;
 import org.araport.image.staging.StagingImageModuleInitTasklet;
 import org.araport.image.tasklet.business.ContentDownLoaderTasklet;
+import org.araport.image.writer.StagingImageItemWriter;
 import org.postgresql.util.PSQLException;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -77,7 +78,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 @EnableBatchProcessing
 @Import({ DataSourceInfrastructureConfiguration.class,
 // RowMapperBeans.class,
-		TaskExecutorConfig.class, FlowBeans.class, PolicyBean.class, FilePathItemReader.class})
+		TaskExecutorConfig.class, FlowBeans.class, PolicyBean.class, FilePathItemReader.class, StagingImageItemWriter.class})
 @PropertySources(value = { @PropertySource("classpath:/partition.properties") })
 public class LoadStocksJobBatchConfiguration {
 
@@ -122,6 +123,9 @@ public class LoadStocksJobBatchConfiguration {
 
 	@Autowired
 	ImageModuleInitTasklet imageModuleInitTasklet;
+	
+	@Autowired
+	ItemWriter<DatabaseFileImage> stagingImageWriter;
 
 	@Autowired
 	private TaskExecutor taskExecutor;
@@ -226,6 +230,7 @@ public class LoadStocksJobBatchConfiguration {
 				.<String, DatabaseFileImage>chunk(1)
 				.reader(imagePathReader())
 				.processor(fileItemProcessor)
+				.writer(stagingImageWriter)
 			    .build();
 	}
 

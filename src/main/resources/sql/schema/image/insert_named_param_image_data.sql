@@ -8,4 +8,4 @@ INSERT INTO staging_img.md_mage
 	image_data,
 	md5checksum)
 VALUES 
-	(:name, :fileName, :fileExtension, :size, :width, :height, :content, :md5checksum);
+	(:name, :fileName, :fileExtension, :size, :width, :height, :content, :mdCheckSum);

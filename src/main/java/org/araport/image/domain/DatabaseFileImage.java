@@ -50,7 +50,7 @@ public class DatabaseFileImage {
 	public int getWidth() {
 		return width;
 	}
-	public void seWidth(int width) {
+	public void setWidth(int width) {
 		this.width = width;
 	}
 	public int getHeight() {
