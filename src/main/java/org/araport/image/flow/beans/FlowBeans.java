@@ -1,6 +1,7 @@
 package org.araport.image.flow.beans;
 
 
+import org.araport.image.processor.FileItemProcessor;
 import org.araport.image.staging.*;
 import org.araport.image.tasklet.business.ContentDownLoaderTasklet;
 import org.springframework.context.annotation.Bean;
@@ -25,5 +26,10 @@ public class FlowBeans {
 	@Bean
 	StagingImageModuleInitTasklet stagingImageModuleInitTasklet(){
 		return new StagingImageModuleInitTasklet();
+	}
+	
+	@Bean
+	FileItemProcessor fileItemProcessor(){
+		return new FileItemProcessor();
 	}
 }
